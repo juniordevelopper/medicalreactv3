@@ -1,0 +1,114 @@
+.authContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  animation: slideUp 0.8s ease;
+}
+
+.header { text-align: center; margin-bottom: 30px; }
+.header h2 { font-size: 2rem; color: #1e293b; margin-bottom: 10px; }
+.header p { color: #64748b; }
+
+.form { display: flex; flex-direction: column; gap: 20px; }
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 15px 45px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.inputGroup input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.icon { position: absolute; left: 15px; color: #94a3b8; font-size: 1.3rem; }
+.eyeIcon { position: absolute; right: 15px; cursor: pointer; color: #94a3b8; }
+
+.forgotPass { text-align: right; }
+.forgotPass a { color: var(--primary); text-decoration: none; font-size: 0.9rem; }
+
+.submitBtn {
+  background: var(--primary);
+  color: white;
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.submitBtn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+.footer { text-align: center; margin-top: 30px; font-size: 0.95rem; }
+.footer a { color: var(--primary); text-decoration: none; font-weight: bold; margin-left: 5px; }
+
+/* Background Animations */
+.bgCircles div {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+}
+.circle1 { width: 300px; height: 300px; background: rgba(37, 99, 235, 0.2); top: -100px; right: -100px; }
+.circle2 { width: 400px; height: 400px; background: rgba(168, 85, 247, 0.15); bottom: -150px; left: -150px; }
+
+/* Redmi Note 14 / 1080px Optimization */
+@media (max-width: 1080px) {
+  .loginCard { padding: 30px 20px; }
+  .header h2 { font-size: 1.7rem; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
