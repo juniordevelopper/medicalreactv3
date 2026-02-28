@@ -41,8 +41,8 @@ const Login = () => {
           else if (role === 'director') navigate('/director/dashboard');
           else if (role === 'doctor') navigate('/doctor/queues');
           else if (role === 'reception') navigate('/reception/booking');
-          else if (role === 'patient') navigate('/reception/booking');
-          else navigate('/patient/hospitals');
+          else if (role === 'patient') navigate('/patient/hospitals');
+          else navigate('/login');
       }
     } catch (error) {
       console.error("Login xatoligi:", error);

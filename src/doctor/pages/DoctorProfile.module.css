@@ -1,0 +1,134 @@
+.profileContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.headerArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.pageTitle { font-size: 24px; color: #1e293b; font-weight: 700; }
+
+.editBtn, .cancelBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.editBtn { background: #3b82f6; color: white; border: none; }
+.editBtn:hover { background: #2563eb; }
+
+.cancelBtn { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
+
+.mainCard {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.avatarWrapper { position: relative; width: 130px; height: 130px; }
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f8fafc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.avatarPlaceholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #94a3b8;
+}
+
+.cameraBtn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: #3b82f6;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.titleInfo h3 { margin: 0; font-size: 24px; color: #0f172a; }
+.deptBadge {
+  display: inline-block;
+  margin: 10px 0;
+  background: #eff6ff;
+  color: #3b82f6;
+  padding: 5px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.titleInfo p { margin: 0; color: #64748b; font-size: 14px; display: flex; align-items: center; gap: 5px; }
+
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.fullWidth { grid-column: span 2; }
+
+.inputGroup { display: flex; flex-direction: column; gap: 10px; }
+.inputGroup label { font-size: 14px; font-weight: 600; color: #475569; display: flex; align-items: center; gap: 8px; }
+
+.lockedInput, .editableInput, .lockedTextarea, .editableTextarea {
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.lockedInput, .lockedTextarea { background: #f8fafc; border: 1px solid #f1f5f9; color: #64748b; cursor: not-allowed; }
+.editableInput, .editableTextarea { background: white; border: 1px solid #cbd5e1; color: #1e293b; }
+.editableInput:focus { border-color: #3b82f6; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); }
+
+.saveBtn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.saveBtn:disabled { background: #94a3b8; }
+
+.loader { text-align: center; padding: 50px; font-size: 18px; color: #64748b; }

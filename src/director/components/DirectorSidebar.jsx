@@ -11,9 +11,7 @@ const DirectorSidebar = ({ isOpen, closeSidebar }) => {
     { path: "/director/dashboard", icon: <MdDashboard />, label: "Asosiy Panel" },
     { path: "/director/manage-doctors", icon: <MdPeople />, label: "Shifokorlar" },
     { path: "/director/manage-receptions", icon: <MdSupportAgent />, label: "Reception" },
-    { path: "/staff/candidates", icon: <MdPersonSearch />, label: "Xodim Tayinlash" },
     // Profil yo'li to'g'irlandi
-    { path: "/director/profile", icon: <MdSettings />, label: "Profil Sozlamalari" },
   ];
 
   return (

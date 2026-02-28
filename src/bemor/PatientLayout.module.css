@@ -1,0 +1,3 @@
+.layoutContainer { display: flex; min-height: 100vh; background-color: #f8fafc; }
+.mainWrapper { flex-grow: 1; margin-left: 260px; display: flex; flex-direction: column; }
+.contentArea { margin-top: 75px; padding: 30px; flex-grow: 1; }

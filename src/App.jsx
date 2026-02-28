@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
@@ -31,6 +30,22 @@ import DirectorProfile from './director/pages/DirectorProfile';
 import DirectorCreateDoctor from './director/pages/DirectorCreateDoctor';
 import DirectorDoctorDetail from './director/pages/DirectorDoctorDetail';
 import DirectorEditDoctor from './director/pages/DirectorEditDoctor';
+import DirectorReceptionCreate from './director/pages/DirectorReceptionCreate';
+import DirectorReceptionDetail from './director/pages/DirectorReceptionDetail';
+import DirectorReceptionEdit from './director/pages/DirectorReceptionEdit';
+import DirectorReceptionList from './director/pages/DirectorReceptionList';
+
+// Doctor Layoutlar
+import DoctorLayout from './doctor/DoctorLayout';
+import DoctorProfile from './doctor/pages/DoctorProfile';
+import DoctorQueue from './doctor/pages/DoctorQueue';
+import DoctorChat from './doctor/pages/DoctorChat';
+
+// Doctor Layoutlar
+import ReceptionLayout from './reception/ReceptionLayout';
+import ReceptionProfile from './reception/pages/ReceptionProfile';
+import PatientLayout from './bemor/PatientLayout';
+import PatientProfile from './bemor/pages/PatientProfile';
 
 
 // --- HIMOYALANGAN YO'L KOMPONENTI ---
@@ -52,7 +67,7 @@ const PrivateRoute = ({ children, allowedRole }) => {
 const App = () => {
   return (
     <BrowserRouter>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-center" />
 
       <Routes>
         {/* Umumiy sahifalar */}
@@ -101,6 +116,10 @@ const App = () => {
           <Route path="create-doctor" element={<DirectorCreateDoctor />} />
           <Route path="doctor-detail/:id" element={<DirectorDoctorDetail />} />
           <Route path="edit-doctor/:id" element={<DirectorEditDoctor />} />
+          <Route path="create-receptions" element={<DirectorReceptionCreate />} />
+          <Route path="detail-receptions/:id" element={<DirectorReceptionDetail />} />
+          <Route path="edit-receptions/:id" element={<DirectorReceptionEdit />} />
+          <Route path="manage-receptions" element={<DirectorReceptionList />} />
         </Route>
 
         {/* DOCTOR PANEL */}
@@ -108,11 +127,13 @@ const App = () => {
           path="/doctor/*" 
           element={
             <PrivateRoute allowedRole="doctor">
-              <div>Doctor Layout</div>
+              <DoctorLayout />
             </PrivateRoute>
           }
         >
-          <Route path="queues" element={<div>Doctor Navbatlar</div>} />
+          <Route path="doctor-profile" element={<DoctorProfile />} />
+          <Route path="doctor-queue" element={<DoctorQueue />} />
+          <Route path="doctor-chats" element={<DoctorChat />} />
         </Route>
 
         {/* RECEPTION PANEL */}
@@ -120,10 +141,12 @@ const App = () => {
           path="/reception/*" 
           element={
             <PrivateRoute allowedRole="reception">
-              <div>Reception Layout</div>
+              <ReceptionLayout />
             </PrivateRoute>
           }
         >
+          <Route path="reception-dashboard" element={<div>Reception dashboard</div>} />
+          <Route path="reception-profile" element={<ReceptionProfile />} />
           <Route path="booking" element={<div>Reception Booking</div>} />
         </Route>
 
@@ -132,11 +155,12 @@ const App = () => {
           path="/patient/*" 
           element={
             <PrivateRoute allowedRole="patient">
-              <div>Bemor Layout</div>
+              <PatientLayout />
             </PrivateRoute>
           }
         >
           <Route path="hospitals" element={<div>Bemor Shifoxonalar</div>} />
+          <Route path="patient-profile" element={<PatientProfile />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

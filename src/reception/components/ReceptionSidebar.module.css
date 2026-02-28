@@ -1,0 +1,50 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #0f172a;
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.logoSection {
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #020617;
+}
+
+.logoIcon { font-size: 32px; color: #10b981; }
+.logoText { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.5px; }
+
+.menu { flex-grow: 1; padding: 25px 0; display: flex; flex-direction: column; gap: 8px; }
+
+.link, .activeLink {
+  display: flex;
+  align-items: center;
+  padding: 14px 25px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.link:hover {
+  color: #10b981;
+  padding-left: 35px;
+  transform: scale(1.02);
+}
+
+.activeLink {
+  background-color: #1e293b;
+  color: white;
+  border-left: 4px solid #10b981;
+}
+
+.icon { font-size: 20px; margin-right: 15px; }
+.text { font-weight: 500; font-size: 15px; }

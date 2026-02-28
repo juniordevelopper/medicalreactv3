@@ -1,4 +1,6 @@
-.wrapper {
+.mainWrapper {
+  margin-left: 280px;
+  margin-top: 50px;
   display: flex;
   min-height: 100vh;
   background-color: #f8fafc; /* Asosiy fon rangi */

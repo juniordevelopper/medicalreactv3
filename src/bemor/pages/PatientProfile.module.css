@@ -1,0 +1,106 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.title { color: #1e293b; font-size: 24px; font-weight: 700; }
+
+.editBtn, .cancelBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.editBtn { background: #3b82f6; color: white; border: none; }
+.cancelBtn { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+
+.profileBox {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.avatarWrapper { position: relative; width: 120px; height: 120px; }
+.avatarImg { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #f8fafc; }
+
+.uploadBtn {
+  position: absolute; bottom: 0; right: 0;
+  background: #3b82f6; color: white;
+  width: 35px; height: 35px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; border: 3px solid white;
+}
+
+.headerText h3 { margin: 0; color: #1e293b; font-size: 22px; }
+.headerText p { margin: 5px 0 0; color: #94a3b8; font-weight: 600; }
+
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.fullWidth { grid-column: span 2; }
+
+.inputGroup { display: flex; flex-direction: column; gap: 8px; }
+.inputGroup label {
+  font-size: 13px; font-weight: 700; color: #64748b;
+  display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+}
+
+.inputGroup input, .inputGroup select, .inputGroup textarea {
+  padding: 12px 15px; border-radius: 10px; border: 1px solid #e2e8f0;
+  font-size: 15px; transition: 0.3s; width: 100%;
+}
+
+.inputGroup input:disabled, .inputGroup select:disabled, .inputGroup textarea:disabled {
+  background-color: #f8fafc; color: #1e293b; cursor: not-allowed; border-color: #f1f5f9;
+}
+
+.inputGroup input:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+
+.saveBtn {
+  width: 100%; margin-top: 30px; padding: 15px;
+  background: #10b981; color: white; border: none;
+  border-radius: 12px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.saveBtn:disabled { background: #94a3b8; }
+
+.bloodType {
+  margin: 5px 0 0;
+  color: #ef4444; /* Qon rangi */
+  font-weight: 700;
+  font-size: 14px;
+  background: #fef2f2;
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+
+/* Select menyusi uchun stil */
+.inputGroup select {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+}

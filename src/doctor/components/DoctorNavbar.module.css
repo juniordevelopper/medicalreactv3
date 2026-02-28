@@ -1,0 +1,174 @@
+.navbar {
+  height: 75px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  position: fixed;
+  top: 0;
+  left: 260px; /* Sidebar kengligi bilan bir xil */
+  right: 0; /* Ekran oxirigacha */
+  z-index: 999;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.iconBox {
+  position: relative;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+.notifIcon {
+  font-size: 22px;
+  transition: color 0.2s;
+}
+
+.notifIcon:hover { color: #3b82f6; }
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.profileWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.profileWrapper:hover { background-color: #f8fafc; }
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.userRole {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.avatarBox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.avatarIcon {
+  font-size: 35px;
+  background: #e2e8f0;
+  padding: 7px;
+  border-radius: 50%;
+  color: #475569;
+}
+
+.chevron {
+  font-size: 14px;
+  color: #94a3b8;
+  transition: transform 0.3s;
+}
+
+.rotate { transform: rotate(180deg); }
+
+/* Dropdown Menu */
+.dropdownMenu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 200px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #475569;
+  transition: 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: #f1f5f9;
+  color: #3b82f6;
+}
+
+.logout {
+  border-top: 1px solid #f1f5f9;
+  color: #ef4444;
+}
+
+.logout:hover {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.dropdownItem {
+  text-decoration: none; /* Link ostidagi chiziqni oladi */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #475569;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.dropdownItem span {
+  color: inherit;
+}
+.avatarImg {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover; /* Rasmni cho'zib yubormaslik uchun */
+  border: 1px solid #e2e8f0;
+}
+
+.avatarIcon {
+  font-size: 35px;
+  background: #e2e8f0;
+  padding: 7px;
+  border-radius: 50%;
+  color: #475569;
+}
