@@ -1,0 +1,204 @@
+.container {
+  padding: clamp(1rem, 3vw, 2.5rem);
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.titleSec h1 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.titleSec p { color: #64748b; margin-top: 0.2rem; }
+.titleSec span { color: #2563eb; font-weight: 700; }
+
+.createBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #2563eb;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.createBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+}
+
+.filterBar {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: white;
+  padding: 0 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  border: 1px solid #e2e8f0;
+}
+
+.searchWrapper input {
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.selectGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.customSelect {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  padding: 0 0.8rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.customSelect select {
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+/* LIST ITEM STYLE */
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listItem {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.listItem:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 25px -10px rgba(0,0,0,0.08);
+  border-color: #2563eb;
+}
+
+.itemMain {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 2;
+}
+
+.imageBox {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  background: #f1f5f9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 2rem;
+}
+
+.imageBox img { width: 100%; height: 100%; object-fit: cover; }
+
+.infoBox { flex: 1; }
+.hospName { font-size: 1.15rem; color: #0f172a; margin-bottom: 0.2rem; font-weight: 700; }
+.hospAddress { font-size: 0.85rem; color: #64748b; margin-bottom: 0.8rem; }
+
+.metaTags {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.regionTag, .deptTag {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.regionTag { background: #eff6ff; color: #2563eb; }
+.deptTag { background: #f0fdf4; color: #16a34a; }
+
+.itemDetails {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.directorBox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #64748b;
+}
+
+.directorBox svg { font-size: 1.5rem; color: #cbd5e1; }
+.directorBox label { display: block; font-size: 0.75rem; color: #94a3b8; font-weight: 500; }
+.directorBox span { font-size: 0.95rem; color: #334155; font-weight: 600; }
+
+.arrowBox {
+  width: 40px;
+  height: 40px;
+  background: #f8fafc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  font-size: 1.5rem;
+}
+
+/* 1080px (Redmi Note 14) MEDIA */
+@media (max-width: 1080px) {
+  .header { flex-direction: column; align-items: flex-start; }
+  .createBtn { width: 100%; justify-content: center; }
+  .filterBar { grid-template-columns: 1fr; }
+  
+  .listItem { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .itemMain { width: 100%; }
+  .itemDetails { width: 100%; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 1rem; }
+  .directorBox { gap: 0.5rem; }
+}

@@ -1,0 +1,99 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #0f172a; /* To'q ko'k / qora fon */
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* YIG'ILGAN HOLAT (Desktop) */
+.collapsed {
+  width: 80px;
+}
+
+.sidebarTop {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 180px;
+}
+
+.logoIcon { font-size: 2.2rem; color: #2563eb; flex-shrink: 0; }
+.logoText { color: white; font-weight: 800; font-size: 1.1rem; white-space: nowrap; }
+
+.desktopToggle { cursor: pointer; font-size: 1.6rem; color: #64748b; display: flex; transition: 0.2s; }
+.desktopToggle:hover { color: white; }
+
+.navMenu { flex: 1; padding: 1rem 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; }
+
+.link, .activeLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.2rem;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.2s ease;
+  white-space: nowrap;
+  color: #94a3b8;
+}
+
+.link:hover { background: rgba(255, 255, 255, 0.05); color: white; }
+.activeLink { background: #2563eb; color: white; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
+
+.iconBox { font-size: 1.4rem; display: flex; flex-shrink: 0; }
+
+.collapsed .logoText, .collapsed .label, .collapsed .sidebarFooter {
+  display: none;
+}
+
+/* MOBILE LOGIC (1080px - Redmi Note 14) */
+@media (max-width: 1080px) {
+  .sidebar {
+    transform: translateX(-100%); /* Telefonda yashirinadi */
+    width: 280px;
+  }
+
+  .mobileOpen {
+    transform: translateX(0); /* Telefonda chiqib keladi */
+  }
+
+  .desktopToggle { display: none; }
+  .mobileClose { cursor: pointer; font-size: 1.8rem; color: white; display: block; }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sidebarFooter { padding: 1.5rem; text-align: center; font-size: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+.mobileClose { display: none; }

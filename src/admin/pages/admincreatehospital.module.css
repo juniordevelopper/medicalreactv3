@@ -1,0 +1,264 @@
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-main: #f8fafc;
+  --white: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --radius-xl: 1.5rem;
+  --radius-md: 0.75rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container {
+  padding: clamp(1rem, 5vw, 2.5rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--white);
+  color: var(--text-muted);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.backBtn:hover {
+  background: #f1f5f9;
+  color: var(--text-dark);
+  transform: translateX(-5px);
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--text-dark);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.formCard {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.inputBox {
+  margin-bottom: 1.5rem;
+}
+
+.inputBox label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.inputBox input, 
+.inputBox select {
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  background: var(--white);
+  font-size: 1rem;
+  transition: var(--transition);
+  outline: none;
+}
+
+.inputBox input:focus, 
+.inputBox select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.flexInputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.deptBadgeGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.deptBadge {
+  padding: 0.625rem 1.25rem;
+  background: #f1f5f9;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+.activeBadge {
+  background: #eff6ff;
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  border: 3px dashed #cbd5e1;
+  border-radius: var(--radius-xl);
+  background: #f8fafc;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 2rem;
+  text-align: center;
+}
+
+.dropzone:hover {
+  background: #f1f5f9;
+  border-color: var(--primary);
+}
+
+.uploadIcon {
+  font-size: 4rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 6px rgba(59, 130, 246, 0.2));
+}
+
+.previewContainer {
+  position: relative;
+  min-height: 350px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.previewContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.deleteImg {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(239, 68, 68, 0.95);
+  color: var(--white);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.deleteImg:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.actions {
+  margin-top: clamp(2rem, 5vh, 4rem);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.125rem 3rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  width: auto;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.submitBtn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* RedMi Note 14 (1080px) va planshetlar uchun */
+@media (max-width: 1080px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .formCard {
+    padding: 2rem;
+  }
+
+  .dropzone, .previewContainer {
+    min-height: 300px;
+  }
+
+  .submitBtn {
+    width: 100%; /* Mobil va 1080px qurilmalarda tugma to'liq kenglikda */
+  }
+}

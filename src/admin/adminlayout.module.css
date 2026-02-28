@@ -1,188 +1,52 @@
 .wrapper {
   display: flex;
   min-height: 100vh;
-  background: #f1f5f9;
-}
-
-/* SIDEBAR STYLES */
-.sidebar {
-  width: 260px;
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  z-index: 100;
-}
-
-.collapsed { width: 80px; }
-
-.sidebarTop {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #2563eb;
-  font-weight: 700;
-  font-size: 1.1rem;
+  background-color: #f8fafc; /* Asosiy fon rangi */
   overflow: hidden;
 }
 
-.logoIcon { font-size: 2rem; min-width: 35px; }
-
-.toggleBtn {
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #64748b;
-}
-
-.navMenu {
-  flex: 1;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.navMenu a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 12px 15px;
-  text-decoration: none;
-  color: #64748b;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.navMenu a:hover { background: #f8fafc; color: #2563eb; }
-.navMenu a.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
-
-.icon { font-size: 1.5rem; min-width: 24px; }
-
-/* MAIN AREA & NAVBAR */
 .mainArea {
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 0; /* Flex element sig'ib ketishi uchun */
+  transition: all 0.3s ease;
 }
 
-.navbar {
-  height: 70px;
-  background: #ffffff;
-  padding: 0 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: 0;
-  z-index: 90;
+.pageContent {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  height: calc(100vh - 70px); /* Navbar balandligini hisobga olgan holda */
 }
 
-.pageTitle { font-size: 1.25rem; font-weight: 600; color: #1e293b; }
-
-.navRight { display: flex; align-items: center; gap: 25px; }
-
-.notif {
-  font-size: 1.5rem;
-  color: #64748b;
-  position: relative;
-  cursor: pointer;
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-out;
 }
 
-.badge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  background: #ef4444;
-  color: white;
-  font-size: 0.65rem;
-  padding: 2px 5px;
-  border-radius: 10px;
-}
-
-.profileWrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  position: relative;
-  padding: 5px 10px;
-  border-radius: 10px;
-  transition: 0.2s;
-}
-
-.profileWrapper:hover { background: #f8fafc; }
-
-.avatar img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.userInfo { line-height: 1.2; }
-.userName { font-size: 0.9rem; font-weight: 600; color: #1e293b; }
-.userRole { font-size: 0.75rem; color: #64748b; text-transform: capitalize; }
-
-.rotate { transform: rotate(180deg); transition: 0.3s; }
-
-/* DROPDOWN MENU */
-.dropdown {
-  position: absolute;
-  top: 60px;
-  right: 0;
-  width: 180px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  animation: fadeIn 0.2s ease;
-}
-
-.dropdown button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border: none;
-  background: none;
-  width: 100%;
-  cursor: pointer;
-  border-radius: 8px;
-  color: #475569;
-  font-size: 0.9rem;
-}
-
-.dropdown button:hover { background: #f1f5f9; }
-.logoutBtn { color: #ef4444 !important; }
-
-.content { padding: 30px; flex: 1; }
-
-/* 1080px (Redmi Note 14) Optimization */
+/* Redmi Note 14 (1080px) va planshetlar uchun optimallash */
 @media screen and (max-width: 1080px) {
-  .sidebar { width: 220px; }
-  .collapsed { width: 70px; }
-  .navbar { padding: 0 15px; }
-  .userInfo { display: none; } /* Kichikroq ekranda ismni yashirish */
-  .content { padding: 20px; }
+  .pageContent {
+    padding: 20px;
+  }
+}
+
+/* Kichik telefonlar uchun */
+@media screen and (max-width: 480px) {
+  .pageContent {
+    padding: 15px;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

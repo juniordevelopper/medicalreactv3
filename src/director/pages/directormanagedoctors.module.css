@@ -1,0 +1,151 @@
+.container {
+  padding: 20px;
+  background-color: #f4f7f6;
+  min-height: 100%;
+}
+
+.headerCard {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titleRow h2 { color: #2c3e50; font-size: 1.5rem; }
+
+.btnAdd {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btnAdd:hover { background: #219150; }
+
+.controls { display: flex; gap: 15px; }
+
+.searchGroup {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.inputWrapper {
+  position: relative;
+  flex: 2;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #95a5a6;
+}
+
+.input, .select {
+  width: 80%;
+  padding: 10px 15px;
+  padding-left: 35px;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  outline: none;
+}
+
+.select { padding-left: 15px; flex: 1; cursor: pointer; }
+
+.btnSearch {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Table Styles */
+.tableWrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.table th {
+  background: #f8f9fa;
+  padding: 15px;
+  text-align: left;
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.table td { padding: 15px; border-bottom: 1px solid #f1f2f6; }
+
+.userCell { display: flex; align-items: center; gap: 15px; }
+
+.avatar {
+  width: 40px; height: 40px;
+  background: #3498db;
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: bold;
+}
+
+.userName strong { display: block; color: #2c3e50; }
+.userName span { font-size: 0.8rem; color: #95a5a6; }
+
+.roomBadge {
+  background: #f1f2f6;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.btnView {
+  background: #f1f2f6;
+  color: #3498db;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.btnView:hover { background: #3498db; color: white; }
+
+.noData { text-align: center; padding: 40px; color: #95a5a6; }
+
+/* Media Queries (Redmi Note 14 & Tablets) */
+@media (max-width: 1080px) {
+  .titleRow { flex-direction: column; gap: 15px; align-items: flex-start; }
+  .btnAdd { width: 100%; justify-content: center; }
+  .searchGroup { flex-direction: column; }
+  .btnSearch { padding: 12px; }
+  .tableWrapper { margin: 0 -20px; border-radius: 0; }
+}

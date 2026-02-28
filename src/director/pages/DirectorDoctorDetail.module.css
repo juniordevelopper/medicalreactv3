@@ -1,0 +1,114 @@
+.container {
+  padding: 30px;
+  background-color: #f8fafc;
+}
+
+.card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  padding: 35px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #475569;
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.avatarLarge {
+  width: 100px;
+  height: 100px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nameGroup h1 { margin: 0; font-size: 2rem; color: #1e293b; }
+.deptBadge { 
+  display: inline-block;
+  margin-top: 8px;
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.detailItem { display: flex; align-items: flex-start; gap: 15px; }
+.icon { font-size: 1.5rem; color: #3b82f6; margin-top: 5px; }
+.detailItem label { display: block; font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+.detailItem p { margin: 5px 0 0; font-size: 1.1rem; color: #334155; font-weight: 500; }
+
+.bioSection {
+  background: #f8fafc;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.bioSection h3 { margin-top: 0; color: #1e293b; }
+.bioSection p { line-height: 1.6; color: #475569; }
+
+.editBtn {
+  margin-left: auto; /* Tugmani o'ng tomonga suradi */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.editBtn:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+
+@media (max-width: 1080px) {
+  .detailsGrid { grid-template-columns: 1fr; }
+  .mainInfo { flex-direction: column; text-align: center; }
+}

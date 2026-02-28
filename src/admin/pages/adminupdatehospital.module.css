@@ -1,0 +1,117 @@
+.container {
+  padding: clamp(1rem, 4vw, 2.5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.leftHeader { display: flex; align-items: center; gap: 1.5rem; }
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.4rem;
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deleteBtn:hover { background: #e11d48; color: white; }
+
+.title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #0f172a; }
+
+.formCard {
+  background: white;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* INPUTS & DEPTS */
+.inputBox { margin-bottom: 1.5rem; }
+.inputBox label, .fieldLabel { display: block; font-size: 0.9rem; font-weight: 700; color: #334155; margin-bottom: 0.6rem; }
+.inputBox input, .inputBox select {
+  width: 100%; padding: 0.9rem 1.1rem; border-radius: 14px;
+  border: 2.5px solid #f1f5f9; outline: none; transition: 0.3s;
+}
+.inputBox input:focus { border-color: #2563eb; }
+
+.flexInputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
+
+.deptGrid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+.deptBtn {
+  padding: 0.6rem 1.2rem; border-radius: 100px; border: 2px solid #f1f5f9;
+  background: #f8fafc; cursor: pointer; font-weight: 600; color: #475569; font-size: 0.85rem;
+}
+.activeDept { background: #eff6ff; border-color: #2563eb; color: #2563eb; }
+
+/* IMAGE BOX */
+.imageBox { width: 100%; aspect-ratio: 4 / 3; }
+.previewWrapper {
+  position: relative; width: 100%; height: 100%; border-radius: 24px;
+  overflow: hidden; box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+.previewWrapper img { width: 100%; height: 100%; object-fit: cover; }
+.overlay {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.4);
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  color: white; font-weight: 700; opacity: 0; cursor: pointer; transition: 0.3s;
+}
+.previewWrapper:hover .overlay { opacity: 1; }
+
+/* CONFIRM BOX (TOAST CUSTOM) */
+.confirmBox {
+  text-align: center; padding: 0.5rem; color: #0f172a;
+}
+.warnIcon { font-size: 2.5rem; color: #f59e0b; margin-bottom: 0.5rem; }
+.confirmBtns { display: flex; gap: 1rem; margin-top: 1rem; justify-content: center; }
+.cancelBtn { padding: 0.5rem 1.2rem; border-radius: 8px; border: 1px solid #e2e8f0; background: white; cursor: pointer; }
+.deleteConfirmBtn { padding: 0.5rem 1.2rem; border-radius: 8px; border: none; background: #e11d48; color: white; cursor: pointer; font-weight: 600; }
+
+.actions { margin-top: 3rem; display: flex; justify-content: flex-end; }
+.submitBtn {
+  background: #2563eb; color: white; padding: 1.1rem 3.5rem;
+  border: none; border-radius: 16px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+
+/* 1080px (Redmi Note 14) MEDIA */
+@media (max-width: 1080px) {
+  .header { flex-direction: column; align-items: stretch; }
+  .leftHeader { flex-direction: column; align-items: flex-start; }
+  .deleteBtn { width: 100%; justify-content: center; }
+  .mainGrid { grid-template-columns: 1fr; gap: 3rem; }
+  .imageBox { aspect-ratio: 16 / 9; }
+  .submitBtn { width: 100%; justify-content: center; }
+}

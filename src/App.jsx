@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
@@ -12,25 +13,51 @@ import VerifyEmail from './auth/VerifyEmail';
 import ResetPassword from './auth/ResetPassword';
 import PasswordConfirm from './auth/PasswordConfirm';
 
-// Layoutlar (Hozircha faqat AdminLayout tayyor, qolganlari o'rniga vaqtincha bo'sh komponent)
+// Admin Layoutlar
 import AdminLayout from './admin/AdminLayout';
-// Boshqa rollar uchun ham Layoutlar import qilinadi...
+import AdminDashboard from './admin/pages/AdminDashboard';
+import AdminRegions from './admin/pages/AdminRegions';
+import AdminDepartments from './admin/pages/AdminDepartments';
+import AdminListHospital from './admin/pages/AdminListHospital';
+import AdminCreateHospital from './admin/pages/AdminCreateHospital';
+import AdminDetailHospital from './admin/pages/AdminDetailHospital';
+import AdminUpdateHospital from './admin/pages/AdminUpdateHospital';
+import AdminProfile from './admin/pages/AdminProfile';
+
+// Director Layoutlar
+import DirectorLayout from './director/DirectorLayout';
+import DirectorManageDoctors from './director/pages/DirectorManageDoctors';
+import DirectorProfile from './director/pages/DirectorProfile';
+import DirectorCreateDoctor from './director/pages/DirectorCreateDoctor';
+import DirectorDoctorDetail from './director/pages/DirectorDoctorDetail';
+import DirectorEditDoctor from './director/pages/DirectorEditDoctor';
+
+
+// --- HIMOYALANGAN YO'L KOMPONENTI ---
+const PrivateRoute = ({ children, allowedRole }) => {
+  const token = localStorage.getItem('access');
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (!token || !user) {
+    return <Navigate to="/auth/login" replace />;
+  }
+
+  if (allowedRole && user.role !== allowedRole) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
 
 const App = () => {
-  // LocalStorage'dan foydalanuvchi ma'lumotlarini olish mantiqi
-  const token = localStorage.getItem('access');
-  const user = JSON.parse(localStorage.getItem('user')); // Role bu yerda bo'ladi
-
   return (
     <BrowserRouter>
-      {/* Toast xabarlari uchun konteyner */}
       <Toaster position="top-center" reverseOrder={false} />
 
       <Routes>
-        {/* Umumiy ochiq sahifalar */}
+        {/* Umumiy sahifalar */}
         <Route path="/" element={<Welcome />} />
         
-        {/* Auth sahifalari */}
         <Route path="/auth">
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
@@ -39,50 +66,79 @@ const App = () => {
           <Route path="verify-email/:uidb64/:token" element={<VerifyEmail />} />
         </Route>
 
-        {/* ADMIN PANEL (Faqat admin uchun) */}
+        {/* ADMIN PANEL */}
         <Route 
-          path="/admin" 
-          element={token && user?.role === 'admin' ? <AdminLayout user={user} /> : <Navigate to="/auth/login" />}
+          path="/admin/*" 
+          element={
+            <PrivateRoute allowedRole="admin">
+              <AdminLayout />
+            </PrivateRoute>
+          }
         >
-          <Route path="dashboard" element={<div>Admin Panel: Dashboard</div>} />
-          <Route path="hospitals" element={<div>Admin Panel: Shifoxonalar</div>} />
-          <Route path="users" element={<div>Admin Panel: Foydalanuvchilar</div>} />
-          <Route path="profile" element={<div>Admin Panel: Profil</div>} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="regions" element={<AdminRegions />} />
+          <Route path="departments" element={<AdminDepartments />} />
+          <Route path="hospitals" element={<AdminListHospital />} />
+          <Route path="hospitals/create-hospital" element={<AdminCreateHospital />} />
+          <Route path="hospitals/detail-hospital/:id" element={<AdminDetailHospital />} />
+          <Route path="hospitals/update-hospital/:id" element={<AdminUpdateHospital />} />
+          <Route path="admin-profile" element={<AdminProfile />} />
+          <Route path="users" element={<div>Admin Foydalanuvchilar</div>} />
+          <Route path="profile" element={<div>Admin Profil</div>} />
         </Route>
 
         {/* DIRECTOR PANEL */}
         <Route 
-          path="/director" 
-          element={token && user?.role === 'director' ? <div>Director Layout</div> : <Navigate to="/auth/login" />}
+          path="/director/*" 
+          element={
+            <PrivateRoute allowedRole="director">
+              <DirectorLayout />
+            </PrivateRoute>
+          }
         >
-          <Route path="dashboard" element={<div>Director Dashboard</div>} />
+          <Route path="manage-doctors" element={<DirectorManageDoctors />} />
+          <Route path="director-profile" element={<DirectorProfile />} />
+          <Route path="create-doctor" element={<DirectorCreateDoctor />} />
+          <Route path="doctor-detail/:id" element={<DirectorDoctorDetail />} />
+          <Route path="edit-doctor/:id" element={<DirectorEditDoctor />} />
         </Route>
 
         {/* DOCTOR PANEL */}
         <Route 
-          path="/doctor" 
-          element={token && user?.role === 'doctor' ? <div>Doctor Layout</div> : <Navigate to="/auth/login" />}
+          path="/doctor/*" 
+          element={
+            <PrivateRoute allowedRole="doctor">
+              <div>Doctor Layout</div>
+            </PrivateRoute>
+          }
         >
           <Route path="queues" element={<div>Doctor Navbatlar</div>} />
         </Route>
 
         {/* RECEPTION PANEL */}
         <Route 
-          path="/reception" 
-          element={token && user?.role === 'reception' ? <div>Reception Layout</div> : <Navigate to="/auth/login" />}
+          path="/reception/*" 
+          element={
+            <PrivateRoute allowedRole="reception">
+              <div>Reception Layout</div>
+            </PrivateRoute>
+          }
         >
-          <Route path="booking" element={<div>Reception Navbatga qo'shish</div>} />
+          <Route path="booking" element={<div>Reception Booking</div>} />
         </Route>
 
         {/* BEMOR PANEL */}
         <Route 
-          path="/patient" 
-          element={token && user?.role === 'patient' ? <div>Bemor Layout</div> : <Navigate to="/auth/login" />}
+          path="/patient/*" 
+          element={
+            <PrivateRoute allowedRole="patient">
+              <div>Bemor Layout</div>
+            </PrivateRoute>
+          }
         >
-          <Route path="hospitals" element={<div>Bemor: Shifoxonalar</div>} />
+          <Route path="hospitals" element={<div>Bemor Shifoxonalar</div>} />
         </Route>
 
-        {/* 404 SAHIFA */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

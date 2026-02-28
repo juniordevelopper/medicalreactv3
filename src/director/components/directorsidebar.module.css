@@ -1,0 +1,56 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #0f172a;
+  color: #94a3b8;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.hiddenSidebar {
+  transform: translateX(-100%); /* Ekrandan butunlay surilib chiqadi */
+}
+
+.sidebarTop {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logoIcon { font-size: 2.2rem; color: #3b82f6; }
+.logoText { color: white; font-weight: 800; font-size: 1.1rem; white-space: nowrap; }
+
+.closeBtn {
+  display: none; /* Desktopda yopish tugmasi logo yonida shart emas */
+  background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer;
+}
+
+.navMenu { padding: 1.2rem 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.link, .activeLink {
+  display: flex; align-items: center; gap: 1rem; padding: 0.9rem 1.2rem;
+  text-decoration: none; border-radius: 12px; font-weight: 600; color: #94a3b8; transition: 0.2s;
+}
+
+.link:hover { background: rgba(255, 255, 255, 0.05); color: white; }
+.activeLink { background: #3b82f6; color: white; box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3); }
+
+.iconBox { font-size: 1.4rem; display: flex; }
+
+@media (max-width: 1080px) {
+  .sidebar { width: 280px; }
+  .closeBtn { display: block; }
+}

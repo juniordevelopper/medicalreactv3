@@ -1,0 +1,69 @@
+.container { animation: fadeIn 0.4s ease; }
+
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.titleSec h1 { font-size: 1.6rem; color: #1e293b; margin: 0; }
+.titleSec p { color: #64748b; font-size: 0.85rem; margin-top: 4px; }
+
+.addBtn {
+  background: #2563eb; color: white; border: none; padding: 10px 20px;
+  border-radius: 12px; display: flex; align-items: center; gap: 8px;
+  font-weight: 600; cursor: pointer; transition: 0.3s;
+}
+
+.addBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(37, 99, 235, 0.2); }
+
+.mainCard { background: white; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; }
+
+.topBar { padding: 15px 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #f1f5f9; color: #94a3b8; }
+.topBar input { border: none; width: 100%; outline: none; font-size: 0.95rem; }
+
+.tableWrapper { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.table th { padding: 15px 20px; background: #f8fafc; color: #64748b; text-align: left; font-size: 0.8rem; text-transform: uppercase; }
+.table td { padding: 15px 20px; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; color: #475569; }
+
+.nameCell { font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px; }
+.cellIcon { color: #3b82f6; font-size: 1.2rem; }
+.descCell { max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.actions { display: flex; gap: 8px; justify-content: flex-end; }
+.editBtn, .deleteBtn { padding: 8px; border-radius: 8px; border: none; cursor: pointer; font-size: 1.1rem; transition: 0.2s; }
+.editBtn { background: #eff6ff; color: #2563eb; }
+.deleteBtn { background: #fef2f2; color: #ef4444; }
+.editBtn:hover { background: #2563eb; color: white; }
+.deleteBtn:hover { background: #ef4444; color: white; }
+
+.center { text-align: center; padding: 40px; color: #94a3b8; }
+
+/* MODAL */
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 2000; }
+.modal { background: white; width: 90%; max-width: 450px; padding: 25px; border-radius: 24px; }
+.modalHead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.close { cursor: pointer; font-size: 1.5rem; color: #94a3b8; }
+
+.field { margin-bottom: 15px; }
+.field label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; }
+.field input, .field textarea { width: 100%; padding: 12px; border-radius: 10px; border: 1.5px solid #e2e8f0; outline: none; font-family: inherit; }
+.field input:focus, .field textarea:focus { border-color: #2563eb; }
+
+.btns { display: flex; gap: 12px; margin-top: 20px; }
+.save, .cancel { flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; }
+.save { background: #2563eb; color: white; }
+.cancel { background: #f1f5f9; color: #475569; }
+
+/* TOAST CONFIRM */
+.toastConfirm { padding: 4px; }
+.toastHeader { display: flex; align-items: center; gap: 10px; font-weight: 700; color: #1e293b; margin-bottom: 8px; }
+.warningIcon { color: #f59e0b; font-size: 1.4rem; }
+.toastBody { font-size: 0.9rem; color: #64748b; line-height: 1.4; margin-bottom: 15px; }
+.toastActions { display: flex; gap: 10px; }
+.toastCancel, .toastDelete { flex: 1; padding: 8px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; font-size: 0.85rem; }
+.toastCancel { background: #f1f5f9; color: #475569; }
+.toastDelete { background: #ef4444; color: white; }
+
+/* Redmi Note 14 (1080px) */
+@media screen and (max-width: 1080px) {
+  .table th:nth-child(2), .table td:nth-child(2), .table th:nth-child(3), .table td:nth-child(3) { display: none; }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
